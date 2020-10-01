@@ -9,6 +9,7 @@ import {
 } from "reactstrap";
 import { Link } from "react-router-dom";
 
+
 function RenderPartner({ partner }) {
 	if (partner) {
 		return (

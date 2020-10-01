@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 import { Loading } from "./LoadingComponent";
 import { baseUrl } from '../shared/baseUrl';
 
+
 function RenderDirectoryItem({ campsite }) {
 	return (
 		<Card>
@@ -54,7 +55,7 @@ function Directory(props) {
 		)
 	}
 
-	return (
+	return (	
 		<div className='container'>
 			<div className='row'>
 				<div className='col'>

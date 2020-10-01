@@ -1,13 +1,16 @@
 import React, { Component } from "react";
 import { Breadcrumb, BreadcrumbItem, Button, Label, Col, Row} from "reactstrap";
 import { Link } from "react-router-dom";
-import { Control, Form, Errors, actions } from 'react-redux-form';
+import { Control, Form, Errors } from 'react-redux-form';
+import { Transform, FadeTransform } from "react-animation-components";
 
 const required = val => val && val.length;
 const maxLength = len => val => !val || (val.length <= len);
 const minLength = len => val => val && (val.length >= len);
 const isNumber = val => !isNaN(+val);
 const validEmail = val => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val);
+
+
 
 class Contact extends Component {
     constructor(props) {
@@ -50,8 +53,13 @@ class Contact extends Component {
 							</BreadcrumbItem>
 							<BreadcrumbItem active>Contact Us</BreadcrumbItem>
 						</Breadcrumb>
+                        <Transform
+                            enterTransform='translateX(0px)'
+                            exitTransform='translateX(-1030px)'
+                            in>
 						<h2>Contact Us</h2>
-						<hr />
+                        </Transform>
+                        <hr />
 					</div>
 				</div>
 
@@ -81,11 +89,20 @@ class Contact extends Component {
 				</div>
 				<div className="row row-content">
                     <div className="col-12">
+                        <Transform
+                            enterTransform='translateX(0px)'
+                            exitTransform='translateX(-1030px)'
+                            in>
                         <h2>Send us your Feedback</h2>
+                        </Transform>
                         <hr />
                     </div>
                     <div className="col-md-10">
                         <Form model="feedbackForm" onSubmit={values => this.handleSubmit(values)}>
+                        <FadeTransform in transformProps={{
+                                    enterTransform: 'translateX(0px)',
+                                    exitTransform: 'translateX(-200px)'}}
+                        >
                             <Row className="form-group">
                                 <Label htmlFor="firstName" md={2}>First Name</Label>
                                 <Col md={10}>
@@ -216,11 +233,17 @@ class Contact extends Component {
                                     />
                                 </Col>
                             </Row>
+                            </FadeTransform>
                             <Row className="form-group">
                                 <Col md={{size: 10, offset: 2}}>
+                                <Transform
+                                    enterTransform='translateX(10px)'
+                                    exitTransform='translateX(-1350px)'
+                                    in>    
                                     <Button type="submit" color="primary">
                                         Send Feedback
                                     </Button>
+                                </Transform>    
                                 </Col>
                             </Row>
                         </Form>
